@@ -8,6 +8,8 @@ https://github.com/IntelRealSense/librealsense/blob/master/third-party/libtm/lib
   <arg name="serial_no"           default="929122111316"/>
   <arg name="json_file_path"      default="$(find osr_odometry)/calibration/odometry.json"/>
   <arg name="camera"              default="tracking_camera"/>
+  <arg name="usb_port_id"         default=""/>
+  <arg name="device_type"         default="t265"/>
   <arg name="tf_prefix"           default="$(arg camera)"/>
 
   <arg name="fisheye_width"       default="848"/> 
@@ -36,6 +38,8 @@ https://github.com/IntelRealSense/librealsense/blob/master/third-party/libtm/lib
     <include file="$(find realsense2_camera)/launch/includes/nodelet.launch.xml">
       <arg name="tf_prefix"                value="$(arg tf_prefix)"/>
       <arg name="serial_no"                value="$(arg serial_no)"/>
+      <arg name="usb_port_id"              value="$(arg usb_port_id)"/>
+      <arg name="device_type"              value="$(arg device_type)"/>
       <arg name="json_file_path"           value="$(arg json_file_path)"/>
       <arg name="calib_odom_file"           value="$(arg json_file_path)"/>
 
