@@ -6,7 +6,7 @@ https://github.com/IntelRealSense/librealsense/blob/master/third-party/libtm/lib
 -->
 <launch>
   <arg name="serial_no"           default="929122111316"/>
-  <arg name="json_file_path"      default="$(find osr_odometry)/calibration/odometry.json"/>
+  <arg name="json_file_path"      default=""/>
   <arg name="camera"              default="tracking_camera"/>
   <arg name="tf_prefix"           default="$(arg camera)"/>
 
@@ -30,7 +30,7 @@ https://github.com/IntelRealSense/librealsense/blob/master/third-party/libtm/lib
 
   <arg name="publish_odom_tf"     default="true"/>
 
-  <arg name="topic_odom_in" default="/odom" />
+  <arg name="topic_odom_in" default="" />
   
   <group ns="$(arg camera)">
     <include file="$(find realsense2_camera)/launch/includes/nodelet.launch.xml">
