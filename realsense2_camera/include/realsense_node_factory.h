@@ -16,6 +16,7 @@
 #include <constants.h>
 #include <realsense2_camera/Extrinsics.h>
 #include <realsense2_camera/IMUInfo.h>
+#include <realsense2_camera/Tracker.h>
 #include <csignal>
 #include <eigen3/Eigen/Geometry>
 #include <fstream>

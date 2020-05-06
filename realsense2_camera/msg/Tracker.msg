@@ -1,0 +1,2 @@
+int32 tracker_confidence
+int32 mapper_confidence

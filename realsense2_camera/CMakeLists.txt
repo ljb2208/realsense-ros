@@ -57,6 +57,7 @@ add_message_files(
     FILES
     IMUInfo.msg
     Extrinsics.msg
+    Tracker.msg
     )
 
 generate_messages(

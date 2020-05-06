@@ -821,6 +821,7 @@ void BaseRealSenseNode::setupPublishers()
     if (_enable[POSE])
     {
         _imu_publishers[POSE] = _node_handle.advertise<nav_msgs::Odometry>("odom/sample", 100);
+        _tracker_publishers[POSE] = _node_handle.advertise<Tracker>("odom/confidence", 100);
     }
 
 
@@ -1420,6 +1421,16 @@ void BaseRealSenseNode::pose_callback(rs2::frame frame)
         _imu_publishers[stream_index].publish(odom_msg);
         ROS_DEBUG("Publish %s stream", rs2_stream_to_string(frame.get_profile().stream_type()));
     }
+
+    if (0 != _tracker_publishers[stream_index].getNumSubscribers())
+    {
+        Tracker t_msg;
+        t_msg.tracker_confidence = (int) pose.tracker_confidence;
+        t_msg.mapper_confidence = (int) pose.mapper_confidence;
+        _tracker_publishers[stream_index].publish(t_msg);
+
+    }
+
 }
 
 void BaseRealSenseNode::frame_callback(rs2::frame frame)
